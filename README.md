@@ -1,6 +1,6 @@
 # Pyspark/Python Development Containers
 
-This repository contains a set of configurations to create pyspark an python development environments in vscode using docker containers. For development in pyspark two different strategies can be used, using spark in local mode or in standalone mode. 
+This repository contains a set of configurations to create pyspark and python development environments in vscode using docker containers. For development in pyspark two different strategies can be used, using spark in local mode or in standalone mode. 
 
 
 ## VSCode Development Environments
