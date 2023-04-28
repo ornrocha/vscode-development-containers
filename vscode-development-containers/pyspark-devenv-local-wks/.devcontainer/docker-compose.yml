@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  pyspark-devenv-local:
+    image: ornrocha/pyspark-devenv-local:${SPARK_VERSION:-3.3.2}
+    container_name: pyspark-devenv-local-wks
+    environment:
+      GIT_USERNAME: ${GIT_USERNAME:-default}
+      GIT_EMAIL: ${GIT_EMAIL:-default}
+      JUPYTER_PORT: ${JUPYTER_PORT:-8888}
+      JUPYTER_PASSWORD: ${JUPYTER_PASSWORD}
+      JUPYTER_ALLOW_ORIGIN: ${JUPYTER_ALLOW_ORIGIN:-0.0.0.0}
+      JUPYTER_SPARk_MEMORY: ${JUPYTER_SPARk_MEMORY:-2g}
+      SPARK_EXECUTOR_MEMORY: ${SPARK_EXECUTOR_MEMORY:-2g}
+      JUPYTER_SPARK_CORES: ${JUPYTER_SPARK_CORES:-2}
+      DISABLE_JUPYTER: ${DISABLE_JUPYTER:-0}
+
+
+    hostname: spark-master
+
+    volumes:
+      - ../workspace:/home/devuser/workspace
+      - ../data:/mnt/data
+      - ../external_modules:/home/devuser/external_pythonpath
+      - ../extra_jars:/home/devuser/.extra_jars
+      - pyspark-devenv-local-ssh-keys:/home/devuser/.ssh:rw
+      - pyspark-devenv-local-spark-jars:/home/devuser/.ivy2:rw
+      - pyspark-devenv-local-pyenv:/home/devuser/devenv:rw
+    ports:
+      - ${JUPYTER_PORT:-8888}:${JUPYTER_PORT:-8888}
+      - 4040:4040
+
+volumes:
+  pyspark-devenv-local-pyenv:
+  pyspark-devenv-local-ssh-keys:
+  pyspark-devenv-local-spark-jars:

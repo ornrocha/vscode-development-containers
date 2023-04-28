@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  python-devenv-wks:
+    image: ornrocha/python-devenv:${TAG:-latest}
+    container_name: python-devenv-wks
+    environment:
+      GIT_USERNAME: ${GIT_USERNAME:-default}
+      GIT_EMAIL: ${GIT_EMAIL:-default}
+      JUPYTER_PORT: ${JUPYTER_PORT:-8888}
+      JUPYTER_PASSWORD: ${JUPYTER_PASSWORD}
+      JUPYTER_ALLOW_ORIGIN: ${JUPYTER_ALLOW_ORIGIN}     
+      DISABLE_JUPYTER: ${DISABLE_JUPYTER:-0}
+
+    volumes:
+      - ../workspace:/home/devuser/workspace
+      - ../data:/mnt/data
+      - ../external_modules:/home/devuser/external_pythonpath
+      - python-devenv-wks-ssh-keys:/home/devuser/.ssh:rw
+      - python-devenv-wks-pyenv:/home/devuser/devenv:rw
+    ports:
+      - ${JUPYTER_PORT:-8888}:${JUPYTER_PORT:-8888}
+
+volumes:
+  python-devenv-wks-pyenv:
+  python-devenv-wks-ssh-keys:

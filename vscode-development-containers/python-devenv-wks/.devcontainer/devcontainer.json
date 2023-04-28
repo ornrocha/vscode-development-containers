@@ -1,0 +1,50 @@
+{
+	"name": "Python Development Workspace",
+	"dockerComposeFile": "docker-compose.yml",
+	"runArgs": ["--env-file","${localWorkspaceFolder}/.devcontainer/.env"],
+	"service": "python-devenv-wks",
+	"workspaceFolder": "/home/devuser/workspace",
+	"settings": {
+		"git.path": "/usr/bin/git",
+		"python.envFile": "${workspaceFolder}/.env",
+		"terminal.integrated.shell.linux": "/bin/bash",
+        "python.defaultInterpreterPath": "/home/devuser/devenv/bin/python",
+        "python.pythonPath": "/home/devuser/devenv/bin/python",
+		"python.formatting.blackPath": "/home/devuser/devenv/bin/black",
+		"python.formatting.provider": "black",
+		"python.formatting.blackArgs": [
+			"--line-length",
+			"100"
+		],
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.linting.pylintPath": "/home/devuser/devenv/bin/pylint",
+		"python.linting.pylintArgs": [
+			"--rcfile",
+			"${workspaceFolder}/.pylintrc"
+		],
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": false
+		},
+		"editor.formatOnSave": true,
+		"python.analysis.diagnosticSeverityOverrides": {
+			"reportUnboundVariable": "none",
+			"reportUndefinedVariable": "none",
+			"reportMissingImports": "none",
+			"reportMissingModuleSource": "none",
+		}
+	},
+	"appPort": [
+		"${containerEnv:JUPYTER_PORT}:${containerEnv:JUPYTER_PORT}",
+	],
+	"extensions": [
+		"ms-python.python",
+		"ms-python.pylint",
+		"njpwerner.autodocstring",
+		"KevinRose.vsc-python-indent",
+		"donjayamanne.git-extension-pack",
+		"njqdev.vscode-python-typehint",
+		"LittleFoxTeam.vscode-python-test-adapter"
+	],
+	"remoteUser": "devuser"
+}
