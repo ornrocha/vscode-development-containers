@@ -2,7 +2,7 @@ version: '3'
 
 services:
   pyspark-devenv-local:
-    image: ornrocha/pyspark-devenv-local:${SPARK_VERSION:-3.3.2}
+    image: ornrocha/pyspark-devenv-local:${TAG:-latest}
     container_name: pyspark-devenv-local-wks
     environment:
       GIT_USERNAME: ${GIT_USERNAME:-default}
