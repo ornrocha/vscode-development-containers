@@ -57,6 +57,7 @@ To get started, follow these steps:
 | DISABLE_JUPYTER      | If you want to disable jupyter environment set this value to 1                       | 0             |
 | JUPYTER_ALLOW_ORIGIN | The address origin that are allowed to access to your jupyter server                 | 0.0.0.0       |
 | JUPYTER_PASSWORD     | The password to access to your jupyter server (hashed password)                      | hashed string of "devuser"  |
+|TAG                   | The tag of the docker image regarding the develoment environment (see tags below)    |latest         | 
 
 
 
@@ -76,3 +77,17 @@ To get started, follow these steps:
 | SPARK_WORKER_MEMORY  | The amount of memory that a spark worker can use                                     | 4g            |
 | HISTORY_CLEANER_INTERVAL | Specifies how often the filesystem job history cleaner checks for files to delete| 1d            |
 | HISTORY_MAX_AGE | History files older than this value will be deleted when the filesystem history cleaner runs| 7d          |
+
+
+## Tags
+
+|python-devenv-wks|
+|-----------------|
+|3.10|
+|3.8|
+
+|pyspark-devenv-local-wks/pyspark-devenv-standalone-wks| Python version|Spark version|
+|------------------------------------------------------|---------------|-------------|
+|3.10-3.4.0| 3.10|3.4.0|
+|3.10-3.3.2|3.10|3.3.2|
+|3.8-3.2.1|3.8|3.2.1|
