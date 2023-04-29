@@ -88,6 +88,6 @@ To get started, follow these steps:
 
 |pyspark-devenv-local-wks/pyspark-devenv-standalone-wks| Python version|Spark version|
 |------------------------------------------------------|---------------|-------------|
-|3.10-3.4.0| 3.10|3.4.0|
+|3.10-3.4.0 (latest)| 3.10|3.4.0|
 |3.10-3.3.2|3.10|3.3.2|
 |3.8-3.2.1|3.8|3.2.1|
